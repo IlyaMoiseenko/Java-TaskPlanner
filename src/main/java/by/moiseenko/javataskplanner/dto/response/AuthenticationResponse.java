@@ -13,5 +13,4 @@ public class AuthenticationResponse {
 
     private String username;
     private String accessToken;
-    private String refreshToken;
 }
