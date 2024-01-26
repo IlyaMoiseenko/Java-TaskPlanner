@@ -9,6 +9,7 @@ import by.moiseenko.javataskplanner.dto.task.TaskDto;
 import by.moiseenko.javataskplanner.dto.validation.OnUpdate;
 import by.moiseenko.javataskplanner.mapper.TaskMapper;
 import by.moiseenko.javataskplanner.service.TaskService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/task")
 @RequiredArgsConstructor
 @Validated
+@Tag(name = "Task controller", description = "Controller for work with task")
 public class TaskController {
 
     private final TaskService taskService;

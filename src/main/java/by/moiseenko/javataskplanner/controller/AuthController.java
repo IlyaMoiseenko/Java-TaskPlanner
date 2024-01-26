@@ -12,6 +12,7 @@ import by.moiseenko.javataskplanner.dto.validation.OnCreate;
 import by.moiseenko.javataskplanner.mapper.UserMapper;
 import by.moiseenko.javataskplanner.service.AuthenticationService;
 import by.moiseenko.javataskplanner.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 @Validated
+@Tag(name = "Authentication controller", description = "Controller for authentication and authorization")
 public class AuthController {
 
     private final AuthenticationService authenticationService;
