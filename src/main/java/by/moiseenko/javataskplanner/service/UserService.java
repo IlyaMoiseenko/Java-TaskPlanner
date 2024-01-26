@@ -6,6 +6,7 @@ package by.moiseenko.javataskplanner.service;
 
 import by.moiseenko.javataskplanner.domain.user.Role;
 import by.moiseenko.javataskplanner.domain.user.User;
+import by.moiseenko.javataskplanner.exception.ResourceNotFoundException;
 import by.moiseenko.javataskplanner.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,12 +26,14 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public User getById(Long id) {
-        return null;
+        return userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User was not found"));
     }
 
     @Transactional(readOnly = true)
     public User getByUsername(String username) {
-        return null;
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User was not found"));
     }
 
 
