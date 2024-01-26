@@ -1,31 +1,28 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
   cache:
     type: redis
     cache-names: redis-cache
   data:
     redis:
-      host: localhost
+      host: ${REDIS_HOST}
       port: 6379
-      password: ZmRzamtmYmFzZGtqYmdqa2FzaGJna2pkaHNhZ2RzYQ==
+      password: ${REDIS_PASSWORD}
   datasource:
-    url: jdbc:postgresql://localhost:5432/tasklist?currentSchema=tasklist
-    username: postgres
-    password: root
+    url: jdbc:postgresql://${HOST}:5432/${POSTGRES_DATABASE}?currentSchema=${POSTGRES_DATABASE}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
-  sql:
-    init:
-      mode: never
-      continue-on-error: false
-#      data-locations: classpath:demo_data.sql
   liquibase:
     change-log: classpath:liquibase/db.changelog.yml
     enabled: true
-    default-schema: tasklist
+    default-schema: ${POSTGRES_SCHEMA}
 security:
   jwt:
-    secret: a2ZnbGRic2FsZmtqYWJzZG47a2Rnam5kc2FsO2pnbjtrYWRzamJnYWtzZGJnLGphZHNoYmdqYWRoc3ZiZmtqZGhzQlZGSkhEQlZBU0Y7S0pCRFNBJ0Y7TEpCQVNETEZLSEIgRFNBLEZHU1ZBTEpIR1ZKTFNEQkhBRks7ZGpiZjtrYWpic2RmbGJkc2FsZm5ic2Rha2pkZmJqbGFoc2RiZmFkc25iZiBsaGprYWRzYmZsa2hqZHNiYWZrbGFzZGJmbGpoYm5hZHMsbGtmamJuYXNrZGxiZnNhZCxqaGJmbWRqc2hiZmpoc2FkYmZsamtoZGI7Zm5qZCdGO0FTRCdGTjtMRk5BTFNES0pG
-    access: 3600000
-    refresh: 2592000000
+    secret: ${JWT_SECRET}
+    access: 1
+    refresh: 30
 
 springdoc:
   override-with-generic-response: false
