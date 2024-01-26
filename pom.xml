@@ -22,6 +22,7 @@
         <mapstruct-processor.version>1.5.5.Final</mapstruct-processor.version>
         <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
+        <liquibase.version>4.25.1</liquibase.version>
         <jjwt.version>0.11.5</jjwt.version>
     </properties>
 
@@ -37,6 +38,13 @@
             <artifactId>spring-boot-starter-security</artifactId>
             <version>3.0.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

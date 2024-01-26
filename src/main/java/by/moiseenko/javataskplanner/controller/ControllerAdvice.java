@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ControllerAdvice {
 
-    @ExceptionHandler(ResourceMappingException.class)
+    @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ExceptionBody handleResourceNotFoundException(ResourceNotFoundException e) {
         return new ExceptionBody(e.getMessage());
